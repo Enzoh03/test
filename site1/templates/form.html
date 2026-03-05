@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Inscrição</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <form action="/enviar" method="POST">
+        
+        <div class="dados">
+            <h2>Informações do Coroinha</h2>
+            
+            <label>Nome Completo:</label><br>
+                <input type="text" name="nome" required oninput="this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, '')"><br><br>
+            
+                <label>Nome da Mãe ou Responsável:</label><br>
+                <input type="text" name="respn1" required oninput="this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, '')"><br><br>
+            
+                <label>Nome da Pai ou Responsável:</label><br>
+                <input type="text" name="respn2" placeholder="(opcional)" oninput="this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, '')"><br><br>
+            
+                <label>Qual a sua comunidade?</label><br>
+                <select name="comunidade" required>
+                    <option value="">Selecione</option>
+                    <option value="St.Amaro">Santo Amaro</option>
+                    <option value="St.Antonio">Santo Antônio</option>
+                     <option value="Sta.Clara">Santa Clara</option>
+                    <option value="S.Francisco">São Francisco</option>
+                    <option value="S.Jose">São José</option>
+                    <option value="S.Pedro">São Pedro</option>
+                    <option value="S.Sebatiao">São Sebastião</option>
+                </select><br><br>
+            
+                <label>Data de Nascimento:</label>
+                <input type="date" name="data" required>
+        </div>
+        
+        <div class="dados">
+            <h2>Contato</h2>
+            
+            <label>Celular para Contato:</label><br>
+                <input type="tel" name="cel1" maxlength="11" required placeholder="(coroinha)" oninput="this.value = this.value.replace(/[^0-9]/g, '')"><br><br>
+            
+            <label>Celular para Contato 2:</label><br>
+                <input type="tel" name="cel2" maxlength="11" required placeholder="(responsável)" oninput="this.value = this.value.replace(/[^0-9]/g, '')"><br><br>
+            
+            <label>Email:</label>
+                <input type="email" name="email" placeholder="(opcional)">
+        </div>
+
+         <div class="dados">
+            <h2>Endereço</h2>
+            
+            <label>Nome da Rua:</label><br>
+                <input type="text" name="rua" required oninput="this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, '')"><br><br>
+            
+            <label>Nome do Bairro:</label><br>
+                <input type="text" name="bairro" required oninput="this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, '')"><br><br>
+            
+            <label>Número da Casa:</label><br>
+                <input type="number" name="num" required oninput="this.value = this.value.replace(/[^0-9]/g, '')"><br><br>
+            
+            <label>Complemeto:</label><br>
+                <input type="text" name="compl" placeholder="(opcional)" oninput="this.value = this.value.replace(/[^A-Za-zÀ-ÿ\s]/g, '')"><br><br>
+         </div>
+        <button type="submit">Enviar</button>
+    </form>
+
+</body>
+</html>
