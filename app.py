@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from supabase import create_client
 from dotenv import load_dotenv
 import os
@@ -67,7 +67,12 @@ def enviar():
     supabase.table("endereco").insert(data_ender).execute()
 
     
-    return render_template("end.html",nome=nome)
+    return redirect(url_for("confirmacao", nome=nome))
+
+@app.route("/confirmacao")
+def confirmacao():
+    nome = request.args.get("nome")
+    return render_template("end.html", nome=nome)
 
 if __name__ == "__main__":
     app.run(debug=True) 
